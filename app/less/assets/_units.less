@@ -1,0 +1,66 @@
+.units{
+	border-bottom: 1px solid #f8f8f8;
+	&__header{
+		height: 76px;
+		& h2{
+			height: 100%;
+			color: @textColor;
+			font-family: @FuturaBold;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 76px;
+			text-transform: uppercase;
+		}
+	}
+	&__content{
+		display: flex;
+	}
+	&__item{
+		width: 33.33333333%;
+		min-height: 400px;
+		position: relative;
+	}
+	&__desc{
+		position: absolute;
+		padding: 30px;
+		padding-left: 0;
+		padding-bottom: 0;
+		top: 26%;
+		// bottom: -14%;
+		& .name{
+			color: #fff;
+			font-family: @FuturaBold;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 15.82px;
+			text-transform: uppercase;
+			width: 109px;
+			padding-left: 30px;
+			& span{
+				display: block;
+				margin-top: 20px;
+			}
+		}
+		& .role{
+			background-color: #fff;
+			padding: 30px;
+			padding-bottom: 0;
+			& h4{
+				color: @textColor;
+				font-family: @FuturaBold;
+				font-size: 14px;
+				font-weight: 700;
+				line-height: 18.36px;
+				text-transform: uppercase;
+				margin-bottom: 25px;
+			}
+			& p{
+				color: @textColor;
+				font-family: @FuturaRegular;
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 24px;
+			}
+		}
+	}
+}

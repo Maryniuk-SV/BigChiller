@@ -1,0 +1,323 @@
+.header{
+	&__navigation{
+		height: 90px;
+		background-color: #f5f5f5;
+		position: relative;
+		&.navigation__fixed{
+			z-index: 3;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 65px;
+			box-shadow: 0 1px 4px rgba(0, 0, 0,.5);
+			& .hamburger{
+				top: 44%;
+			}
+		}
+	}
+}
+.location{
+	height: 40px;
+	line-height: 40px;
+	display: flex;
+	color: @textColor;
+	font-family: @FuturaRegular;
+	font-size: 16px;
+	&__place{
+		padding-right: 30px;
+		border-right: 1px solid #f6f6f6;
+		& span{
+			display: inline-block;
+			position: relative;
+			color: @blue;
+			margin-left: 3px;
+			padding-left: 14px;
+			text-transform: uppercase;
+			font-family: @FuturaBold;
+			font-weight: 700;
+			cursor: pointer;
+			&::after{
+				content: '\f041';
+				display: block;
+				position: absolute;
+				font-family: @FontAwesome;
+				width: 20px;
+				height: 20px;
+				top: -2px;
+				left: 0;
+			}
+		}
+	}
+	&__change{
+		margin-left: 30px;
+		position: relative;
+		& .arrow{
+			display: block;
+			width: 24px;
+			height: 1px;
+			background-color: @textColor;
+			position: absolute;
+			top: 50%;
+			right: -35px;
+			cursor: pointer;
+			&::before, &::after{
+				content: '';
+				display: block;
+				position: absolute;
+				background-color: @textColor;
+				height: 1px;
+				width: 6px;
+				transform-origin: right center;
+				right: 0;
+				top: 0;
+				transform: rotateZ(45deg);
+			}
+			&::after{
+				transform: rotateZ(-45deg);
+			}
+		}
+	}
+}
+
+.navigation{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	&__logo{
+		font-family: @FuturaBold;
+		font-weight: 800;
+		text-transform: uppercase;
+		max-width: 175px;
+		font-size: 0;	
+		& a{
+			color: #cecece;
+			display: flex;
+			flex-direction: column;
+		}
+		& span{
+			display: block;
+			font-size: 16px;
+			margin: 1px 0;
+		}
+		& span:nth-child(2){
+			font-size: 26px;
+			line-height: 8px;
+			color: @blue;
+			text-shadow: 1px 1px 5px #fff;
+		}
+		& span:nth-child(3){
+			align-self: flex-end;
+		}
+	}
+}
+.hamburger{
+	display: none;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: color .4s;
+	&:hover span{
+		background-color: @blue;
+		&::before, &::after{
+			background-color: @blue;
+		}
+	}
+	& span{
+		display: inline-block;
+		background-color: @textColor;
+		width: 25px;
+		height: 3px;
+		position: relative;
+		transition: all .5s;
+		&::before, &::after{
+			content: '';
+			display: block;
+			position: absolute;
+			transition: all .5s;
+			width: 100%;
+			height: 100%;
+			top: -8px;
+			background-color: @textColor;
+		}
+		&::after{
+			top: 8px;
+		}
+		&.hamburger__active{
+			background-color: transparent;
+			&::before, &::after{
+				transition: all .5s;
+				transform-origin: right center;
+				background-color: @blue;
+			}
+			&::before{
+				transform: rotateZ(-40deg); 
+			}
+			&::after{
+				transform: rotateZ(40deg); 
+			}
+		}
+	}
+}
+.menu{
+	width: 590px;
+	&.menu__active{
+		display: block;
+	}
+	& ul{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	& li{
+		position: relative;
+		&.menu__list > a{
+			padding-right: 20px;
+			&::before{
+				content: '\f107';
+				display: block;
+				position: absolute;
+				font-family: @FontAwesome;
+				top: 4px;
+				right: 5px;
+			}
+		}
+		&.active{
+			& > a{
+				color: @blue;
+				position: relative;
+				&::after{
+					content: '';
+					display: block;
+					position: absolute;
+					background-color: @blue;
+					height: 2px;
+					width:60%;
+					bottom: 4px;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+				&:hover{
+					color: #fff;
+					&::after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	& a{
+		color: @textColor;
+		font-family: @FuturaBold;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 18.36px;
+		text-transform: uppercase;
+		display: inline-block;
+		padding: 6px 14px 5px;
+		border-radius: 60px;
+		transition: all .4s;
+		&:hover{
+			color: #fff;
+			background-color: #019fbc;
+			background-image: linear-gradient(to top, #14c1a5 0%, #7edece 100%);
+			padding: 6px 14px 5px;
+		}
+	}
+	&__list{
+		position: relative;
+	}
+	& .menu__drop{
+		z-index: 2;
+		position: absolute;
+		background-color: #fff;
+		top: -500px;
+		left: 50%;
+		transform: translateX(-50%);
+		box-shadow: 0 8px 13px rgba(0, 0, 0, 0.13);
+		display: flex;
+		flex-direction: column;
+		transition: opacity .2s;
+		opacity: 0;
+		&--active{
+			top: 100%;
+			opacity: 1;
+		}
+		& li{
+			width: 100%;
+			&:not(:last-child){
+				border-bottom: 1px solid #f9f9f9;
+			}
+			& a{
+				display: block;
+				border-radius: 0;
+				text-align: center;
+			}
+		}
+	}
+}
+
+.banner{
+	position: relative;
+	&__box{
+		position: relative;
+		height: 590px;
+	}
+	&__item{
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		font-size: 0;
+		opacity: 0;
+		transition: all .4s;
+		& img{
+			height: 100%;
+		}
+		&--active{
+			transition: all .4s;
+			opacity: 1;
+		}
+	}
+	&__nav{
+		position: absolute;
+		top: 30px;
+		right: 25px;
+		display: flex;
+		justify-content: space-between;
+		width: 70px;
+		& .dot{
+			display: block;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: #fff;
+			cursor: pointer;
+			transition: all .4s;
+			&:hover, &__active{
+				background-color: @blue;
+			}
+		}
+	}
+	&__content{
+		position: absolute;
+		bottom: -12px;
+		left: 30px;
+		max-width: 600px;
+		& h1{
+			color: #fff;
+			font-family: @FuturaBold;
+			font-size: 72px;
+			font-weight: 700;
+			line-height: 59.82px;
+			text-transform: uppercase;
+			& span{
+				display: block;
+			}
+		}
+	}
+}
+

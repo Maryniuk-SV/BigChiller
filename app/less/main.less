@@ -1,0 +1,36 @@
+@import "_libs";
+@import "_fonts";
+@import "_vars";
+@import "_mixins";
+
+@import 'assets/_header';
+@import 'assets/_hire';
+@import 'assets/_units';
+@import 'assets/_about';
+@import 'assets/_footer';
+
+html, body{
+	font: 16px/1.5 @FuturaRegular;
+}
+*{
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+img{
+	display: inline-block;
+	width: 100%;
+	height: auto;
+}
+.wrapper{
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 0 25px;
+	height: 100%;
+}
+.blue{
+	color: @blue;
+}
+
+@import "_media";
